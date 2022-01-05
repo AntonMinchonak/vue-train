@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>My first Vue app</title>
+  <link rel="stylesheet" href="style.css">
   <script src="https://unpkg.com/vue"></script>
 </head>
 <body>
@@ -17,7 +18,7 @@
   </div>
 
   <div id="anime">
-  <span v-bind:title="message">
+  <span :title="message"> <!-- // : === v-bind: -->
     Наведи на меня курсор на пару секунд,
     чтобы увидеть динамически связанное значение title!
   </span>
@@ -55,6 +56,46 @@
   </ol>
 </div>
 
+<div id="example">
+  <p>Изначальное сообщение: «{{ message }}»</p>
+  <p>Сообщение задом наперёд: «{{ reversedMessage }}»</p>
+  <p>Сообщение задом наперёд: «{{ anime() }}»</p>
+  <p>А тут всё переворачиваем: «{{ gigaAnime() }}»</p>
+</div>
+
+<div id="demo">{{ fullName }}, {{fullMeme = 'Anime Govno'}}, {{fullMeme}}, {{ fullName }} </div>
+
+<div id="watch-example">
+  <p>
+    Задайте вопрос, на который можно ответить «да» или «нет»:
+    <input v-model="question">
+  </p>
+  <p>{{ answer }}</p>
+</div>
+
+<div class="static" v-bind:class="{ active: isActive, 'text-danger': hasError }"> 
+  ANIME FOR GAYS
+</div>
+
+<div v-bind:style="styleObject"> АНИМЕ не для гейсов</div>
+
+<div id="suka" v-if="blyaa">
+  Сейчас меня видно
+</div>
+<div v-else>
+  А теперь — нет
+</div>
+
+
+<div v-if="Math.random() > 0.5">
+  Сейчас меня видно 2
+</div>
+<div v-else>
+  А теперь — нет 2
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
   <script src="index.js"></script>
 </body>
 </html>
